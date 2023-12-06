@@ -1,0 +1,27 @@
+.taskcard{
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+margin-top: 10px;
+margin-left: 25px;
+margin-right: 25px;
+gap: 24px;
+padding: 10px 10px;
+height: 70px;
+border-radius: 8px;
+background: var(--Secondary, #F5F5F5);
+box-shadow: 1px 1px 8px 0px rgba(44, 44, 44, 0.21);
+}
+.filecls{
+    font-size: 20px;
+    font-family: Montserrat sans-serif;
+    margin-right: 100px;
+    color:#203562;
+}
+.filecls2{
+    font-size: 15px;
+    font-family: Montserrat sans-serif;
+    padding-top: 0px;
+    font-weight: 400;
+    color:#203562;
+}

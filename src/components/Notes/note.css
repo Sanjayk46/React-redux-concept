@@ -1,7 +1,76 @@
 .note{
-    height: 300px;
-    width: 850px;
+    height: auto;
+    width: 90%;
     margin-top:50px;
     background-color: #f5f5f5;
+    border-radius: 10px;
+    position: relative;
     box-shadow: 1px 2px 2px 2px rgba(20,20,20,0.4);
+}
+.titlecls{
+    color: var(--accent, #203562);
+font-family: Montserrat sans-serif;
+font-size: 25px;
+font-weight: 500;
+margin-left: 17px;
+line-height: 33.6px; 
+}
+
+.buttoncls{
+    /* display: flex;
+    flex-direction: row-reverse; */
+    margin-left: 30px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color:#203562;
+    font-size:20px;
+    font-weight: 500;
+    font-family:Montserrat sans-serif;
+    border-radius: 5px;
+}
+.buttoncls:hover{
+    color: white;
+    background-color: #203562;
+}
+.inputcls{
+    margin-left: 20px;
+    font-family: Montserrat sans-serif;
+    background-color: #f5f5f5;
+    border: 1px solid #f5f5f5;
+    margin-bottom: 30px;
+}
+.timedivcls{
+    display:flex;
+    flex-direction: row; 
+    margin-Left:20px;
+    background-color:#a9bcd3d0;
+    width: 22%;
+    border-radius: 30px;
+}
+.timecls{
+    font-family: Montserrat sans-serif;
+    font-size: 18px;
+    color:#203562;
+    /* margin-top: -10px; */
+    font-weight: 700;
+    /* //border: 1px solid #f5f5f5; */
+}
+.closecls{
+    display: flex;
+align-items: flex-end;
+}
+.TaskIcon2{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+.paracls2{
+    color: var(--accent, #203562);
+font-family: Montserrat sans-serif;
+font-size: 25px;
+font-weight: 500;
+line-height: 33.6px; 
+margin-top: 40px;
 }
