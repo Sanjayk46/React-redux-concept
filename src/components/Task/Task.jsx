@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import TaskCard from "../TaskCard/TaskCard";
 import { MdOutlineTaskAlt } from "react-icons/md";
 import './Task.css';
-import {v4 as uuidv4} from "uuid";
+// import {v4 as uuidv4} from "uuid";
 import {CiCalendar} from "react-icons/ci";
 // import {FaRegCircle} from "react-icons/fa";
 // import{IoMdStarOutline} from "react-icons/io";
@@ -42,20 +42,20 @@ const saveTask=()=>{
  setTime('');
 }   
 
-useEffect(()=>{
-  const savedNotes =JSON.parse(
-    localStorage.getItem('notes')
+// useEffect(()=>{
+//   const savedNotes =JSON.parse(
+//     localStorage.getItem('notes')
     
-    );
-  console.log(savedNotes);
-    if(savedNotes){
-    setTask(savedNotes)
-  }
-},[]);
+//     );
+//   console.log(savedNotes);
+//     if(savedNotes){
+//     setTask(savedNotes)
+//   }
+// },[]);
 
-  useEffect(()=>{
-    localStorage.setItem('notes',JSON.stringify(task))
-  },[task]);
+  // // useEffect(()=>{
+  //   localStorage.setItem('notes',JSON.stringify(task));
+  // // },[task]);
 
 return(
      <>

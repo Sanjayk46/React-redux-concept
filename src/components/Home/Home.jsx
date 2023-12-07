@@ -7,8 +7,7 @@ import '../Sidebar/Sidebar.css';
 import {useAuthentication} from '../../Context/userContext';
 export default function Home(){
   let state = useAuthentication();
-  // let note = useNoteAuthentication();
-  console.log(state);  
+  // let note = useNoteAuthentication(); 
   return(
         <>
         <h1>Welcome John</h1>
