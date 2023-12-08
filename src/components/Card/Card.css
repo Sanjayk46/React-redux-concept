@@ -7,11 +7,28 @@
     color: #203562;
     font-weight: 500;
 }
+.cardText{
+  font-family: Montserrat ;
+  font-size: 16px;
+  font-style: normal;
+  color: #000;
+  font-weight: 500;
+  opacity: 0.6;
+}
+.cardText1{
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+color: var(--font,#303030);
+font-weight: 500;
+line-height: 22.4px;
+}
 .notesCard{
   display: grid;
   grid-gap:1rem;
-  width: 100vw;
-  height: 30vh;
+  width: 100%;
+  height: 100%;
+  /* height: 3; */
   margin-bottom: 20px;
   width: auto;
   grid-template-columns: repeat(auto-fit,minmax(450px,1fr()));

@@ -31,6 +31,10 @@ const UserNoteContext = createContext({
     const[time,setTime] = useState('');
     const[text,setText] = useState('');
     const[textArea,setTextarea] = useState('');
+    const deleteNote =(id)=>{
+      setNote(note.filter((node,index)=>index !==id))
+     
+    }
     const props = {
       task,
       setTask,
@@ -44,6 +48,7 @@ const UserNoteContext = createContext({
       setText,
       textArea,
       setTextarea,
+      deleteNote,
     };
   
     return <UserContext.Provider value={props}>{children}</UserContext.Provider>;

@@ -4,29 +4,16 @@ import { MdOutlineTaskAlt } from "react-icons/md";
 import {FaRegCircle} from "react-icons/fa";
 import{IoIosStar, IoMdStarOutline} from "react-icons/io";
 import { useState } from 'react';
-
+import moment from 'moment';
 export default function TaskCard({title,time}){
-//   const [detail,setDeatil] = ({
-//     title:title,
-//     time:time,
-//   })
-//   useEffect(()=>{
-//     const savedNotes =JSON.parse(
-//       localStorage.getItem('notes')
-//       );
-//     console.log(savedNotes.title);
-//        if(savedNotes){
-//        setDeatil(savedNotes)
-//      }
-//   },[detail]);
-  
-//  useEffect(()=>{
-//       localStorage.setItem('notes',JSON.stringify({title,time}));
-//      },[title,time]);
+//  console.log(title);
+//  console.log(time);
 const [isActive,setIsactive]=useState(false);  
-const[isClick,setIsclick]=useState(false); 
+const[isClick,setIsclick]=useState(false);
+const date = moment(new Date (time).getTime()).fromNow();
+
 return(
-         <div class="row taskcard">
+         <div className="row taskcard">
             <div className='row'>
               <div className='col-xl-1 col-lg-1 col-md-1 col-sm-1' onClick={()=>setIsclick(!isClick)}>
               {/* <FaRegCircle size={20} style={{color:"#203562",marginTop:"10px"}}/> */}
@@ -34,7 +21,7 @@ return(
                 </div>
             <div className='col-xl-10 col-lg-10 col-md-10 col-sm-10'>
                 <h5 className='filecls'>{title}</h5>
-                <p className='filecls2'>{time}</p>
+                <p className='filecls2'>{date}</p>
             </div>
                 <div className='col-xl-1 col-lg-1 col-md-1 col-sm-1' onClick={()=>setIsactive(!isActive)}>
               {/* <IoMdStarOutline size={30} style={{color:"#203562",marginTop:"10px",marginLeft:"35px"}} /> */}

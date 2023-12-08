@@ -7,6 +7,7 @@ import '../Sidebar/Sidebar.css';
 import {useAuthentication} from '../../Context/userContext';
 export default function Home(){
   let state = useAuthentication();
+  let deleteNote = useAuthentication();
   // let note = useNoteAuthentication(); 
   return(
         <>
@@ -18,9 +19,11 @@ export default function Home(){
           <p className="Recentcls">Recently View</p> */}
 
           <div className="row container-fluid">
-            {state.note.map((value)=>(
+            {state.note.map((value,index)=>(
              <div className="col-xl-3 col-md-3 col-sm-3">
              <CardElement 
+               id={index}
+               onDelete={deleteNote}
                text={value.text}
                textArea={value.textArea}
              />
