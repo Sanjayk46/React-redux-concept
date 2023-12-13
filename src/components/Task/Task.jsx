@@ -1,45 +1,32 @@
-import React, { useEffect } from "react";
+import React from "react";
 import TaskCard from "../TaskCard/TaskCard";
 import { MdOutlineTaskAlt } from "react-icons/md";
-// import daysjs from 'dayjs';
 import './Task.css';
-// import {v4 as uuidv4} from "uuid";
 import {CiCalendar} from "react-icons/ci";
-// import {FaRegCircle} from "react-icons/fa";
-// import{IoMdStarOutline} from "react-icons/io";
- import { useState } from "react";
- import { useAuthentication } from "../../Context/userContext";
+import { useState } from "react";
+// import { useAuthentication } from "../../Context/userContext";
+import { useDispatch,useSelector } from "react-redux";
+import { addTodo} from "../../Redux/Reducers/tasks.reducer";
 export default function Task(){
-const {task,setTask} = useAuthentication();
 
-// const[task,setTask] = useState([]); 
-// const[state,setState] = useState({
-//   title:"",
-//   time:"",
-//   id:uuidv4,
-// });
-// const handleChange = (event)=>{
-//   setState({...task,[event.target.name]:event.target.value});
-// }
-// const saveTask=()=>{
-//   setTask([...task,state]);
-//   setState({
-//     title:"",
-//     time:"",
-//   })
-// }
+// const {task,setTask} = useState([]);
+const dispatcher = useDispatch();
 const[title,setTitle] = useState('');
+let state = useSelector((state)=>{
+  return state.tasksReducer
+})
 const[time,setTime] = useState(new Date());
-// const[selectOne,setSelectOne]=useState(new Date);
-// const[daysAgo,setDaysago]=useState(0);
+
 const handleChange=(event)=>{
   const name = event.target.value;
   setTitle(name);
 }
 const saveTask=()=>{
- setTask([...task,{title,time}]);
- //setNotes('');
- console.log(setTask);
+
+  dispatcher(addTodo({title,time}))
+
+//  dispatcher([...task,{title,time}]);
+//  console.log(setTask);
  setTitle('');
  setTime('');
 }   
@@ -87,7 +74,7 @@ return(
       </div>
      
      <div className="card taskcls">
-        {task.map((item)=>(
+        {state.tasks && state.tasks.map((item)=>(
             <TaskCard 
             title={item.title}
             time={item.time}

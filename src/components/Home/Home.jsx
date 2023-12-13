@@ -4,10 +4,18 @@ import TaskCard from "../TaskCard/TaskCard";
 import { MdDescription,MdOutlineTaskAlt } from "react-icons/md";
 import './home.css';
 import '../Sidebar/Sidebar.css';
-import {useAuthentication} from '../../Context/userContext';
+import { useSelector } from "react-redux";
 export default function Home(){
-  let state = useAuthentication();
-  let deleteNote = useAuthentication();
+let state = useSelector((state)=>{
+  return state.tasksReducer
+});
+console.log(state)
+let stateNote = useSelector((stateNote)=>{
+  return stateNote.tasksReducer
+});
+console.log(stateNote)
+  // let state = useAuthentication();
+  // let deleteNote = useAuthentication();
   // let note = useNoteAuthentication(); 
   return(
         <>
@@ -19,11 +27,10 @@ export default function Home(){
           <p className="Recentcls">Recently View</p> */}
 
           <div className="row container-fluid">
-            {state.note.map((value,index)=>(
+            {state.notes.map((value,index)=>(
              <div className="col-xl-3 col-md-3 col-sm-3">
              <CardElement 
                id={index}
-               onDelete={deleteNote}
                text={value.text}
                textArea={value.textArea}
              />
@@ -46,7 +53,7 @@ export default function Home(){
       < MdOutlineTaskAlt size={30} style={{marginTop:"10px"}}/><p className="paraTask">My Tasks</p>
       </div>
           <div className="card taskcls container-fluid">
-            {state.task.map((value)=>(
+            {state.tasks.map((value)=>(
              <TaskCard title={value.title}
              time={value.time}
              />

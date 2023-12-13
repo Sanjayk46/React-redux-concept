@@ -4,17 +4,13 @@ import Home from './components/Home/Home';
 import Sidebar from './components/Sidebar/Sidebar';
 import Task from './components/Task/Task';
 import Notes from './components/Notes/Notes';
-import Login from './components/login/Login';
 import {BrowserRouter} from "react-router-dom";
 import {Routes} from "react-router-dom";
 import {Route} from "react-router-dom";
-//import userContext from './userContext';
-import AuthenticationContextProvider from './Context/userContext';
-// import AuthenticationNoteContextProvider from './Context/userContext';
+
 function App() {
   return ( 
     <BrowserRouter> 
-      <AuthenticationContextProvider>
      <div className='row'>
           <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3'>
             <Sidebar />
@@ -28,7 +24,6 @@ function App() {
           </Routes> 
           </div>      
      </div>
-     </AuthenticationContextProvider>
     </BrowserRouter>
   );
 }

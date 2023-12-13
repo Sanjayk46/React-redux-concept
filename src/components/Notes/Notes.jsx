@@ -12,10 +12,11 @@ import {BiRedo, BiUndo} from 'react-icons/bi';
 import { useState } from 'react';
 import { useEffect} from 'react';
 // import TaskCard from "../TaskCard/TaskCard";
-// import{v4 as uuidv4} from "uuid";
-import { useAuthentication } from '../../Context/userContext';
+import { useSelector,useDispatch } from 'react-redux/es/exports';
+// import { useAuthentication } from '../../Context/userContext';
+import { addNote } from '../../Redux/Reducers/tasks.reducer';
+// import { addDelete } from '../../Redux/Reducers/tasks.reducer';
 export default function Note(){
-   
    const [currentTime, setCurrentTime]=useState('');
  useEffect(()=>{
    const updateCurrentTime = ()=>{
@@ -27,7 +28,15 @@ export default function Note(){
    const intervalId = setInterval(updateCurrentTime)
    return ()=> clearInterval(intervalId)
 },[]);
-const {note,setNote} = useAuthentication();
+const dispatcher = useDispatch()
+let stateNote = useSelector((stateNote)=>{
+  return stateNote.tasksReducer
+});
+console.log(stateNote)
+let note = useSelector((note)=>{
+  return note.tasksReducer
+});
+// const {note,setNote} = useAuthentication();
 //const[task,setTask] = useState([]); 
 const[text,setText] = useState('');
 const[textArea,setTextarea] = useState('');
@@ -39,15 +48,15 @@ const handleChange=(event)=>{
 
 }
 const saveTask=()=>{
- setNote([...note,{text,textArea,date}]);
+ dispatcher(addNote({text,textArea,date}));
  setText('');
  setTextarea('');
  setDate('');
 }
-const deleteNote =(id)=>{
-  setNote(note.filter((node,index)=>index !==id))
+// const deleteNote =(id)=>{
+//  dispatcher(addDelete(note.delete.filter((node,index)=>index !==id)))
  
-}
+// }
 return(
         <>
         <div class="card note" style={{display:"flex",flexDirection:"row-reverse"}}>
@@ -101,10 +110,10 @@ return(
       </div>
           <p className='Recentcls'>Recently Viewed</p>
           <div class="row">
-          {note.map((item,index)=>(
-            <div class="col-xl-3col-lg-3 col-md-3 col-sm-3">  
+          {stateNote.notes.map((item,index)=>(
+            <div class="col-xl-3col-lg-3 col-md-3 col-sm-3" style={{paddingBottom:"20px"}}>  
             <CardElement 
-            onDelete={deleteNote}
+            // onDelete={deleteNote}
             id={index}
             text={item.text}
              textArea={item.textArea}

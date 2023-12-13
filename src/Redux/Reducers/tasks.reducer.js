@@ -3,21 +3,20 @@ export const taskSlice = createSlice({
     name: "tasks",
     initialState: {
       tasks: [],
+      notes:[],
     },
     reducers: {
       addTodo: (state, action) => {
-        console.log(action);
-        if (action.payload) {
-          state.tasks.push(action.payload);
-        }
+   console.log(action.payload)
+   state.tasks = [...state.tasks,action.payload]
       },
-      // deleteTodo: (state, action) => {
-      //   // state.value -= 1
-      //   console.log(action);
-      // },
-    },
+      addNote:(state,action)=>{
+        console.log(action.payload)
+        state.notes = [...state.notes,action.payload]
+      },
+    }
   });
   
   // Action creators are generated for each case reducer function
-  export const { addTodo } = taskSlice.actions;
+  export const { addTodo,addNote } = taskSlice.actions;
   export default taskSlice.reducer;

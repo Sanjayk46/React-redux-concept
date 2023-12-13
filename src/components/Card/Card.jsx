@@ -2,13 +2,12 @@ import React from 'react';
 import  './Card.css';
 import { MdOutlineEdit } from 'react-icons/md';
 import { RiDeleteBin6Line } from "react-icons/ri";
+//import { useDispatch } from 'react-redux/es/exports';
 import moment from 'moment';
-export default function CardElement({text,textArea,time,onDelete,id}){
+export default function CardElement({text,textArea,time,id}){
+  // const dispatcher = useDispatch();
    const handleClick=()=>{
-     onDelete(id)
-   }
-   const handleEditclick=()=>{
-
+     console.log('clicked');
    }
    const currentDate = moment(new Date (time).getTime()).fromNow();
    console.log(currentDate);
@@ -20,10 +19,11 @@ return(
      <div class='col-xl-8 col-lg-8 col-md-8 col-sm-8 card-title cardTitle'>{text}
      </div>
      <div class='col-xl-2 col-lg-2 col-md-2 col-sm-2'>
-     <MdOutlineEdit size={20} onClick={handleEditclick}/> 
+     <MdOutlineEdit size={20}/> 
      </div>
      <div class='col-xl-2 col-lg-2 col-md-2 col-sm-2'>
      <RiDeleteBin6Line size={20} onClick={handleClick}/>
+     {/* onClick={handleClick} */}
      </div>
      </div>
      <p className='card-Text cardText1'>{textArea}</p>
